@@ -7,3 +7,5 @@
 
 Libraryries Used: Retrofit, Picasso, Hilt Dagger, etc
 
+MVVM, Kotlin, Kotlin Coroutines, Unit Tests
+
