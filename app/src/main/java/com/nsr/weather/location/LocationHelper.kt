@@ -50,6 +50,7 @@ class LocationHelper(
                     requestLocationPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
                 }
             }
+            // Given more time, will a popup with a message that location services are disabled, etc
             else -> promptUserToEnableLocation()
         }
     }

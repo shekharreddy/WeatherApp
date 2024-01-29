@@ -7,5 +7,6 @@
     <string name="humidity">%s Humidity</string>
     <string name="minMaxFeelsLike">%s / %s Feels Like %s</string>
     <string name="location_permission_error">Location permission is required to access your location.</string>
+    <string name="location_not_found">Location not found, please re-try later.</string>
     <string name="get_current_city_weather">Show Current City Weather</string>
 </resources>

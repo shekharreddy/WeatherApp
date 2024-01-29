@@ -54,6 +54,8 @@ class WeatherFragment : Fragment() {
 
     // Initialize Input and button listeners
     private fun initializeListeners() {
+        //Given more time, will add a textlistener on input field to
+        // enable/disable the status of submit button based on entered text.
         with(binding) {
             cityNameInput.setOnEditorActionListener { input, actionId, event ->
                 if (actionId == EditorInfo.IME_ACTION_DONE ||
@@ -73,6 +75,8 @@ class WeatherFragment : Fragment() {
                     if (isGranted) {
                         location?.let {
                             viewModel.fetchWeatherInfoByLatLon(it.latitude, it.longitude)
+                        }?: run {
+                            showErrorMessage(R.string.location_not_found)
                         }
                     } else {
                         // Permission denied
@@ -83,7 +87,10 @@ class WeatherFragment : Fragment() {
             }
 
             btnCitySubmit.setOnClickListener {
-                viewModel.fetchWeatherInfoByCityName(binding.cityNameInput.text.toString())
+                val cityName = cityNameInput.text.toString()
+                if(cityName.isNotBlank()) {
+                    fetchEnteredCityWeather(cityName)
+                }
             }
         }
     }
